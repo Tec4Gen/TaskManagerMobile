@@ -15,6 +15,9 @@ namespace SSU.TaskManager
                 .Property(p => p.Title)
                 .IsRequired()
                 .HasMaxLength(200);
+
+            builder
+                .ToTable("Board");
         }
     }
 }

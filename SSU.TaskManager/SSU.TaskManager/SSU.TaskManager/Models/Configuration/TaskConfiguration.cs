@@ -27,17 +27,17 @@ namespace SSU.TaskManager
                 .HasMaxLength(200);
 
             builder
-                .Property(p => p.DeadLine)
-                .IsRequired()
-                .HasMaxLength(200);
+                .HasOne(t=>t.Board)
+                .WithMany(b=>b.Tasks)
+                .HasForeignKey(p=>p.BoardId);
 
             builder
-                .Property(p => p.GroupId)
-                .IsRequired();
+                .HasOne(t => t.Group)
+                .WithMany(b => b.Tasks)
+                .HasForeignKey(p => p.GroupId);
 
             builder
-                .Property(p => p.BoardId)
-                .IsRequired();
+                .ToTable("Task");
         }
     }
 }

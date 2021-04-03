@@ -8,13 +8,16 @@ namespace SSU.TaskManager
     {
         public void Configure(EntityTypeBuilder<Role> builder)
         {
-            builder.
-                HasKey(p=>p.Id);
+            builder
+                .HasKey(p=>p.Id);
 
-            builder.
-                Property(p => p.Title).
-                IsRequired().
-                HasMaxLength(200);
+            builder
+                .Property(p => p.Title)
+                .IsRequired()
+                .HasMaxLength(200);
+
+            builder
+                .ToTable("Role");
         }
     }
 }
