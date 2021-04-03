@@ -8,7 +8,26 @@ namespace SSU.TaskManager
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
-            throw new System.NotImplementedException();
+            builder
+                .HasKey(p => p.Id);
+
+            builder
+                .Property(p => p.FirstName)
+                .IsRequired()
+                .HasMaxLength(200);
+
+            builder
+                .Property(p => p.LastName)
+                .IsRequired()
+                .HasMaxLength(200);
+
+            builder
+                .Property(p => p.GroupId)
+                .IsRequired();
+
+            builder
+                .Property(p => p.RoleId)
+                .IsRequired();
         }
     }
 }
