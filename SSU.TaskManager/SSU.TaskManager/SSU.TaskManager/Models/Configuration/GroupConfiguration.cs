@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System.Text.RegularExpressions;
+using SSU.TaskManager.Models.Entities;
 
 namespace SSU.TaskManager
 {
@@ -8,7 +8,13 @@ namespace SSU.TaskManager
     {
         public void Configure(EntityTypeBuilder<Group> builder)
         {
-            throw new System.NotImplementedException();
+            builder.
+                HasKey(p=>p.Id);
+
+            builder.
+                Property(p => p.Title).
+                IsRequired().
+                HasMaxLength(200);
         }
     }
 }
