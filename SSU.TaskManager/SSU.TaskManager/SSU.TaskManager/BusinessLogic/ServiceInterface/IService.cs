@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Text;
 
-namespace SSU.TaskManager.Services.ServiceInterface
+namespace SSU.TaskManager.BusinessLogic.ServiceInterface
 {
     public interface IService<T> where T : class
     {

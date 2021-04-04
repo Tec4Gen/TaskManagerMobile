@@ -1,12 +1,11 @@
-﻿using SSU.TaskManager.Models.DaoInterface;
+﻿using SSU.TaskManager.BusinessLogic.ServiceInterface;
+using SSU.TaskManager.Models.DaoInterface;
 using SSU.TaskManager.Models.Entities;
-using SSU.TaskManager.Services.ServiceInterface;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Text;
 
-namespace SSU.TaskManager.Services.Services
+namespace SSU.TaskManager.BusinessLogic.Services
 {
     public class TaskService : ITaskService
     {

@@ -1,9 +1,6 @@
 ﻿using SSU.TaskManager.Models.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace SSU.TaskManager.Services.ServiceInterface
+namespace SSU.TaskManager.BusinessLogic.ServiceInterface
 {
     public interface IUserService : IService<User>
     {

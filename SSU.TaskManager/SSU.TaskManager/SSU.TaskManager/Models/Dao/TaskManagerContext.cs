@@ -1,5 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SSU.TaskManager.Models.Entities;
+using System;
+using System.IO;
+using Xamarin.Forms;
 
 namespace SSU.TaskManager.Models.Dao
 {
@@ -15,6 +18,14 @@ namespace SSU.TaskManager.Models.Dao
             : base(options)
         {
 
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+           
+            var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "database.db");
+            
+            optionsBuilder.UseSqlite($"Filename={databasePath}");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

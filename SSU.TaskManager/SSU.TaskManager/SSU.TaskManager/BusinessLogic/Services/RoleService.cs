@@ -4,7 +4,6 @@ using SSU.TaskManager.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Text;
 
 namespace SSU.TaskManager.BusinessLogic.Services
 {
