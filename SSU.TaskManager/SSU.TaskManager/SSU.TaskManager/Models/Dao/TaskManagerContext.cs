@@ -14,18 +14,9 @@ namespace SSU.TaskManager.Models.Dao
         public DbSet<Role> Roles { get; set; }
         public DbSet<Group> Groups { get; set; }
 
-        public TaskManagerContext(DbContextOptions<TaskManagerContext> options)
-            : base(options)
-        {
-
-        }
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-           
-            var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "database.db");
-            
-            optionsBuilder.UseSqlite($"Filename={databasePath}");
+            optionsBuilder.UseSqlite(@"Data Source=.\..\..\SSU.TaskManager\SSU.TaskManager\SSU.TaskManager\database.db");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

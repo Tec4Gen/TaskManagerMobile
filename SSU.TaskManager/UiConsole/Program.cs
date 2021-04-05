@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using SSU.TaskManager.Models.Dao;
+using System;
+using System.IO;
 
 namespace UiConsole
 {
@@ -6,7 +10,9 @@ namespace UiConsole
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            //var services = new ServiceCollection();
+
+            //services.AddDbContext<TaskManagerContext>();
         }
     }
 }
