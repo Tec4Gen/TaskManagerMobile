@@ -25,7 +25,7 @@ namespace SSU.TaskManager.Common.Ioc
         {
             Kernel.AddDbContext<TaskManagerContext>(options =>
                options.UseSqlite(Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "database.db"),
-               x => x.MigrationsAssembly("SSU.TaskManager")));
+               x => x.MigrationsAssembly("SSU.TaskManager"))); //TODO: change it)
 
             Kernel.AddTransient<ITaskRepository, TaskRepository>();
             Kernel.AddTransient<IBoardRepository, BoardRepository>();
