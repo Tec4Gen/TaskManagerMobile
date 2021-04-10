@@ -1,14 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using SSU.TaskManager.Entities;
+using System.Collections.Generic;
 
 namespace SSU.TaskManager.Models.Entities
 {
-    public class Role
+    public class Role : BaseEntity
     {
         public Role()
         {
             Users = new List<User>();
         }
-        public int Id { get; set; }
         public string Title { get; set; }
         public ICollection<User>  Users { get; set; }
     }

@@ -1,10 +1,10 @@
-﻿using System;
+﻿using SSU.TaskManager.Entities;
+using System;
 
 namespace SSU.TaskManager.Models.Entities
 {
-    public class Task
+    public class Task : BaseEntity
     {
-        public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public string DeadLine { get; set; }
