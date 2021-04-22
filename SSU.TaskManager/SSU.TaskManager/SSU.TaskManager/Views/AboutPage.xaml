@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SSU.TaskManager.Views.AboutPage"
              xmlns:vm="clr-namespace:SSU.TaskManager.ViewModels"
+             NavigationPage.HasBackButton="True"
              Title="{Binding Title}">
     
     <ContentPage.BindingContext>

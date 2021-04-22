@@ -14,7 +14,10 @@ namespace SSU.TaskManager
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
-            MainPage = new AppShell();
+
+            var loginPage = new LoginPage();
+            var navigationPage = new NavigationPage(loginPage);
+            MainPage = navigationPage;
         }
 
         protected override void OnStart()

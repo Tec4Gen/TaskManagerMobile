@@ -15,7 +15,18 @@ namespace SSU.TaskManager.Views
         public LoginPage()
         {
             InitializeComponent();
-            this.BindingContext = new LoginViewModel();
+        }
+
+        public async void OnRegistration_Clicked(object sender, EventArgs e)
+        {
+            var destination = new RegistrationPage();
+            await this.Navigation.PushAsync(destination);
+        }
+
+        private async void LoginButton_Clicked(object sender, EventArgs e)
+        {
+            var destination = new TabbedPageTaskList();
+            await this.Navigation.PushAsync(destination);
         }
     }
 }
