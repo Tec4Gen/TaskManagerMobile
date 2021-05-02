@@ -43,7 +43,7 @@
                                     <Label Text="{Binding Name}"
                                            FontSize="22"
                                            VerticalOptions="StartAndExpand" />
-                                    <Button Text=">" Clicked="MoveTaskInProgress_Clicked"/>
+                                    <Button Text="" Clicked="MoveTaskInProgress_Clicked"/>
                                 </StackLayout>
                             </StackLayout>
                         </Frame>
