@@ -1,6 +1,6 @@
-﻿using System;
+﻿using SSU.TaskManager.BusinessLogic.ServiceInterface;
+using SSU.TaskManager.Common.Ioc;
 using System.Collections.Generic;
-using System.Text;
 
 namespace SSU.TaskManager.ViewModels
 {
@@ -8,6 +8,7 @@ namespace SSU.TaskManager.ViewModels
     {
         public static List<string> Names { get; set; } = new List<string> { "Поесть", "Покодить", "Поспать" };
 
+       
         private ToDoListViewModel()
         {
         }
@@ -21,6 +22,7 @@ namespace SSU.TaskManager.ViewModels
         // Static members.
         static ToDoListViewModel()
         {
+            
             List<ToDoListViewModel> all = new List<ToDoListViewModel>();
 
             // Loop through the public static fields of the Color structure.

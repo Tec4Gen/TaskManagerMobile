@@ -13,11 +13,11 @@
             
             <Label Text="Description: " FontSize="25" HorizontalOptions="Start" VerticalOptions="Center" />
 
-            <Entry x:Name="description" PropertyChanged="OnDescription_Changed"/>
+            <Entry x:Name="description"/>
 
             <Label Text="Deadline: " FontSize="25" HorizontalOptions="Start" VerticalOptions="Center" />
 
-            <DatePicker x:Name="datePicker" DateSelected="OnDate_Selected"/>
+            <DatePicker x:Name="datePicker"/>
 
             <Button x:Name="saveChangesBtn" Text="Save changes" Clicked="OnSaveChanges_Clicked" />
 
