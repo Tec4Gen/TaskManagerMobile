@@ -24,6 +24,8 @@ namespace SSU.TaskManager.Views
 
         public async void OnBtClick(object sender, EventArgs e)
         {
+            var btn = sender as Button;
+
             await Navigation.PushAsync(new ContentPage
             {
                 Content = new StackLayout
@@ -32,15 +34,15 @@ namespace SSU.TaskManager.Views
                     Children = {
                         new Button {
 
-                            Text = "button1"
+                            Text = btn.Text
                         },
                         new Button {
 
-                           Text = "button2"
+                           Text = btn.Text
                         },
                         new Button {
 
-                            Text = "button3"
+                            Text = btn.Text
                         }
                     }
                 }
