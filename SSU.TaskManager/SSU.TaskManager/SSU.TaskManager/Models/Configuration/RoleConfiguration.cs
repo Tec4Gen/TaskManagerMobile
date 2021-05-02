@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using SSU.TaskManager.Models.Entities;
+using SSU.TaskManager.Entities;
 
 namespace SSU.TaskManager
 {

@@ -1,7 +1,7 @@
 ﻿using SSU.TaskManager.Entities;
 using System.Collections.Generic;
 
-namespace SSU.TaskManager.Models.Entities
+namespace SSU.TaskManager.Entities
 {
     public class Role : BaseEntity
     {

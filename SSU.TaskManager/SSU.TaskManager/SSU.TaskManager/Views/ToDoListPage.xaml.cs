@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using SSU.TaskManager.Entities;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -17,36 +17,25 @@ namespace SSU.TaskManager.Views
             InitializeComponent();
         }
 
-        public async void MoveTaskInProgress_Clicked(object sender, EventArgs e)
-        {
-            
-        }
-
-        public async void OnBtClick(object sender, EventArgs e)
+        public async void OnDescription_Clicked(object sender, EventArgs e)
         {
             var btn = sender as Button;
 
-            await Navigation.PushAsync(new ContentPage
+            var task = new Task
             {
-                Content = new StackLayout
-                {
-                    VerticalOptions = LayoutOptions.Center,
-                    Children = {
-                        new Button {
+                Title = btn.Text,
+                Description = "Типа описание",
+                DeadLine = DateTime.Now.ToString(),
+            };
 
-                            Text = btn.Text
-                        },
-                        new Button {
+            var taskDescriptionView = new TaskDescriptionView(task);
 
-                           Text = btn.Text
-                        },
-                        new Button {
+            await Navigation.PushAsync(taskDescriptionView);
+        }
 
-                            Text = btn.Text
-                        }
-                    }
-                }
-            });
+        public async void OnAddTask_Clicked(object sender, EventArgs e)
+        {
+            
         }
     }
 }

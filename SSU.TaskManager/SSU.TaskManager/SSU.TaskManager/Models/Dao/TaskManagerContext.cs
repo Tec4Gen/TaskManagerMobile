@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SSU.TaskManager.Models.Entities;
+using SSU.TaskManager.Entities;
 using System;
 using System.IO;
 using Xamarin.Forms;

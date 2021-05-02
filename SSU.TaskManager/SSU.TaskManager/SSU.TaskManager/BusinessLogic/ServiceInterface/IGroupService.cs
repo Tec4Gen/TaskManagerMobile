@@ -1,6 +1,4 @@
-﻿
-
-using SSU.TaskManager.Models.Entities;
+﻿using SSU.TaskManager.Entities;
 
 namespace SSU.TaskManager.BusinessLogic.ServiceInterface
 {
