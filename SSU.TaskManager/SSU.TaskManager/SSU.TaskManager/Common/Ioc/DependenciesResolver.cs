@@ -23,16 +23,14 @@ namespace SSU.TaskManager.Common.Ioc
 
         private static IServiceProvider Configurates() 
         {
-            _services.AddDbContext<TaskManagerContext>(options =>
-               options.UseSqlite(Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "database.db"),
-               x => x.MigrationsAssembly("SSU.TaskManager"))); //TODO: change it)
+            _services.AddDbContext<TaskManagerContext>();
+            _services.AddTransient<DbContext, TaskManagerContext>();
 
             _services.AddTransient<ITaskRepository, TaskRepository>();
             _services.AddTransient<IBoardRepository, BoardRepository>();
             _services.AddTransient<IRoleRepository, RoleRepository>();
             _services.AddTransient<IUserRepository, UserRepository>();
             _services.AddTransient<IGroupRepository, GroupRepository>();
-
 
             _services.AddTransient<ITaskService, TaskService>();
             _services.AddTransient<IBoardService, BoardService>();

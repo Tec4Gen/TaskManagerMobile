@@ -12,9 +12,7 @@
     </ContentPage.Padding>
 
     <StackLayout>
-            <ListView SeparatorVisibility="None"
-                  ItemsSource="{x:Static local:ToDoListViewModel.All}">
-
+        <ListView SeparatorVisibility="None" x:Name="toDoList" ItemsSource="{Binding Tasks}">
             <ListView.RowHeight>
                 <OnPlatform x:TypeArguments="x:Int32">
                     <On Platform="iOS, Android" Value="80" />
@@ -30,11 +28,11 @@
                                    Padding="10">
                                 <StackLayout Orientation="Horizontal">
                                     <StackLayout>
-                                        <Label Text="{Binding Name}"
+                                        <Label Text="{Binding Title}"
                                                FontSize="25"
                                                HorizontalOptions="Start"
                                                VerticalOptions="Center"/>
-                                        <Button Text="{Binding Name}" FontSize="10" Clicked="OnDescription_Clicked"/>
+                                        <Button Text="{Binding Title}" FontSize="10" Clicked="OnDescription_Clicked"/>
                                     </StackLayout>
                                 </StackLayout>
                             </Frame>

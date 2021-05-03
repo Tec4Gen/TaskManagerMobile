@@ -16,10 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\DaoInterface\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <EmbeddedResource Update="Views\DoneListPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
