@@ -32,23 +32,23 @@ namespace SSU.TaskManager.Views
 
         public async void OnSaveChanges_Clicked(object sender, EventArgs e)
         {
-            var BoardLogic = DependenciesResolver.Kernel.GetService<IBoardService>();
+            //var BoardLogic = DependenciesResolver.Kernel.GetService<IBoardService>();
 
-            var board = BoardLogic.GetById(1);
+            //var board = BoardLogic.GetById(1);
 
-            var task = new Task
-            {
-                Group = null,
-                GroupId = null,
+            //var task = new Task
+            //{
+            //    Group = null,
+            //    GroupId = null,
 
-                Title = taskTitle.Text,
-                DeadLine = datePicker.Date.ToString("mm/dd/yyyy"),
-                Board = board,
-                BoardId = board.Id
-            };
-            var TaskLogic = DependenciesResolver.Kernel.GetService<ITaskService>();
+            //    Title = taskTitle.Text,
+            //    DeadLine = datePicker.Date.ToString("mm/dd/yyyy"),
+            //    Board = board,
+            //    BoardId = board.Id
+            //};
+            //var TaskLogic = DependenciesResolver.Kernel.GetService<ITaskService>();
 
-            TaskLogic.Update(task);
+            //TaskLogic.Update(task);
         }
 
         public async void MoveInToDo_Clicked(object sender, EventArgs e)

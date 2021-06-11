@@ -6,7 +6,6 @@ using SSU.TaskManager.Models.Dao;
 using SSU.TaskManager.Models.DaoInterface;
 using SSU.TaskManager.Models.Repository;
 using System;
-using System.IO;
 
 namespace SSU.TaskManager.Common.Ioc
 {
@@ -28,16 +27,13 @@ namespace SSU.TaskManager.Common.Ioc
 
             _services.AddTransient<ITaskRepository, TaskRepository>();
             _services.AddTransient<IBoardRepository, BoardRepository>();
-            _services.AddTransient<IRoleRepository, RoleRepository>();
             _services.AddTransient<IUserRepository, UserRepository>();
-            _services.AddTransient<IGroupRepository, GroupRepository>();
 
             _services.AddTransient<ITaskService, TaskService>();
             _services.AddTransient<IBoardService, BoardService>();
-            _services.AddTransient<IRoleService, RoleService>();
             _services.AddTransient<IUserService, UserService>();
-            _services.AddTransient<IGroupService, GroupService>();
 
+           
             return _services.BuildServiceProvider();
         }
     }

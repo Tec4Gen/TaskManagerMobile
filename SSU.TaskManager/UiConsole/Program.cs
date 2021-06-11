@@ -10,9 +10,9 @@ namespace UiConsole
     {
         static void Main(string[] args)
         {
-            //var services = new ServiceCollection();
+            var services = new ServiceCollection();
 
-            //services.AddDbContext<TaskManagerContext>();
+            services.AddDbContext<TaskManagerContext>();
         }
     }
 }

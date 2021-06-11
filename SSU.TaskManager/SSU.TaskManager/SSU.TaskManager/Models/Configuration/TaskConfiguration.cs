@@ -32,9 +32,9 @@ namespace SSU.TaskManager
                 .HasForeignKey(p=>p.BoardId);
 
             builder
-                .HasOne(t => t.Group)
+                .HasOne(t => t.User)
                 .WithMany(b => b.Tasks)
-                .HasForeignKey(p => p.GroupId);
+                .HasForeignKey(p => p.UserId);
 
             builder
                 .ToTable("Task");

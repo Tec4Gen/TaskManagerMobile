@@ -1,4 +1,5 @@
-﻿using SSU.TaskManager.Services;
+﻿using SSU.TaskManager.Models.DaoInterface;
+using SSU.TaskManager.Services;
 using SSU.TaskManager.Views;
 using System;
 using Xamarin.Forms;
@@ -14,6 +15,8 @@ namespace SSU.TaskManager
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
+
+            string dbPath = DependencyService.Get<IPath>().GetDatabasePath("database.db");
 
             var loginPage = new LoginPage();
             var navigationPage = new NavigationPage(loginPage);

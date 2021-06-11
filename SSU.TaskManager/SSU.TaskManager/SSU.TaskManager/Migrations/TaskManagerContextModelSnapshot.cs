@@ -16,7 +16,7 @@ namespace SSU.TaskManager.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.13");
 
-            modelBuilder.Entity("SSU.TaskManager.Models.Entities.Board", b =>
+            modelBuilder.Entity("SSU.TaskManager.Entities.Board", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -32,39 +32,7 @@ namespace SSU.TaskManager.Migrations
                     b.ToTable("Board");
                 });
 
-            modelBuilder.Entity("SSU.TaskManager.Models.Entities.Group", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasMaxLength(200);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Group");
-                });
-
-            modelBuilder.Entity("SSU.TaskManager.Models.Entities.Role", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasMaxLength(200);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Role");
-                });
-
-            modelBuilder.Entity("SSU.TaskManager.Models.Entities.Task", b =>
+            modelBuilder.Entity("SSU.TaskManager.Entities.Task", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -83,24 +51,24 @@ namespace SSU.TaskManager.Migrations
                         .HasColumnType("TEXT")
                         .HasMaxLength(300);
 
-                    b.Property<int?>("GroupId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasMaxLength(200);
 
+                    b.Property<int?>("UserId")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
 
                     b.HasIndex("BoardId");
 
-                    b.HasIndex("GroupId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Task");
                 });
 
-            modelBuilder.Entity("SSU.TaskManager.Models.Entities.User", b =>
+            modelBuilder.Entity("SSU.TaskManager.Entities.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -111,50 +79,31 @@ namespace SSU.TaskManager.Migrations
                         .HasColumnType("TEXT")
                         .HasMaxLength(200);
 
-                    b.Property<int>("GroupId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasMaxLength(200);
 
-                    b.Property<int>("RoleId")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Login")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("GroupId");
-
-                    b.HasIndex("RoleId");
 
                     b.ToTable("User");
                 });
 
-            modelBuilder.Entity("SSU.TaskManager.Models.Entities.Task", b =>
+            modelBuilder.Entity("SSU.TaskManager.Entities.Task", b =>
                 {
-                    b.HasOne("SSU.TaskManager.Models.Entities.Board", "Board")
+                    b.HasOne("SSU.TaskManager.Entities.Board", "Board")
                         .WithMany("Tasks")
                         .HasForeignKey("BoardId");
 
-                    b.HasOne("SSU.TaskManager.Models.Entities.Group", "Group")
+                    b.HasOne("SSU.TaskManager.Entities.User", "User")
                         .WithMany("Tasks")
-                        .HasForeignKey("GroupId");
-                });
-
-            modelBuilder.Entity("SSU.TaskManager.Models.Entities.User", b =>
-                {
-                    b.HasOne("SSU.TaskManager.Models.Entities.Group", "Group")
-                        .WithMany("Users")
-                        .HasForeignKey("GroupId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("SSU.TaskManager.Models.Entities.Role", "Role")
-                        .WithMany("Users")
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618
         }

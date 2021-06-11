@@ -22,16 +22,6 @@ namespace SSU.TaskManager
                 .HasMaxLength(200);
 
             builder
-                .HasOne(g => g.Group)
-                .WithMany(t => t.Users)
-                .HasForeignKey(p => p.GroupId);
-
-            builder
-                .HasOne(g => g.Role)
-                .WithMany(t => t.Users)
-                .HasForeignKey(p => p.RoleId);
-
-            builder
                 .ToTable("User");
         }
     }

@@ -17,7 +17,7 @@ namespace SSU.TaskManager.Views
         private readonly ITaskService _taskService;
         private readonly IBoardService _boardService;
 
-        public List<Task> Tasks { get; private set; }
+        public List<Task> Tasks { get; set; } = new List<Task>();
 
         public ToDoListPage()
         {
@@ -28,7 +28,9 @@ namespace SSU.TaskManager.Views
             _taskService = DependenciesResolver.Kernel.GetService<ITaskService>();
             _boardService = DependenciesResolver.Kernel.GetService<IBoardService>();
 
-            Tasks = _taskService.GetByCondition(t => t.Board.Title == "TODO").ToList();
+            Tasks.Add(new Task { Title = "Task 1" });
+            Tasks.Add(new Task { Title = "Task 2" });
+            Tasks.Add(new Task { Title = "Task 3" });
 
         }
 

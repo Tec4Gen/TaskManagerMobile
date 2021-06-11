@@ -9,30 +9,24 @@ namespace SSU.TaskManager.Models.Dao
 {
     public class TaskManagerContext : DbContext
     {
+        private readonly string _databasePath;
+
         public DbSet<Task> Tasks { get; set; }
         public DbSet<Board> Boards { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<Role> Roles { get; set; }
-        public DbSet<Group> Groups { get; set; }
+
+        //public TaskManagerContext(string databasePath)
+        //{
+        //    _databasePath = databasePath;
+        //}
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite(@"Filename=C:\Users\dima2\source\repos\Tec4Gen\TaskManagerMobile\SSU.TaskManager\SSU.TaskManager\SSU.TaskManager\database.db");
+            optionsBuilder.UseSqlite($@"Filename=/data/user/0/com.companyname.ssu.taskmanager/files/database.db");
         }
-
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    //optionsBuilder.UseSqlite(@"Data Source=.\..\..\..\SSU.TaskManager\\database.db");
-
-        //    optionsBuilder.UseSqlite($@"Filename=C:\Users\dima2\source\repos\Tec4Gen\TaskManagerMobile\SSU.TaskManager\SSU.TaskManager\SSU.TaskManager");
-        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.
-                ApplyConfiguration(new GroupConfiguration());
-            modelBuilder.
-                ApplyConfiguration(new RoleConfiguration());
             modelBuilder.
                 ApplyConfiguration(new TaskConfiguration());
             modelBuilder.
