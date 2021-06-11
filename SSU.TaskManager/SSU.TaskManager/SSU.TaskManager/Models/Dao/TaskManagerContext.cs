@@ -23,6 +23,7 @@ namespace SSU.TaskManager.Models.Dao
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite($@"Filename=/data/user/0/com.companyname.ssu.taskmanager/files/database.db");
+            //optionsBuilder.UseSqlite($@"Filename=database.db");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -9,7 +9,7 @@ using SSU.TaskManager.Models.Dao;
 namespace SSU.TaskManager.Migrations
 {
     [DbContext(typeof(TaskManagerContext))]
-    [Migration("20210611121306_InitialMigration")]
+    [Migration("20210611125324_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
