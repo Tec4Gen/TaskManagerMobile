@@ -1,4 +1,7 @@
-﻿using SSU.TaskManager.ViewModels;
+﻿using SSU.TaskManager.BusinessLogic.ServiceInterface;
+using SSU.TaskManager.Common.Ioc;
+using SSU.TaskManager.Entities;
+using SSU.TaskManager.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +16,10 @@ namespace SSU.TaskManager.Views
     public partial class LoginPage : ContentPage
     {
         private readonly string _dbPath;
+
+        private string _password;
+
+        private string _login;
 
         public LoginPage()
         {
@@ -33,8 +40,36 @@ namespace SSU.TaskManager.Views
 
         private async void LoginButton_Clicked(object sender, EventArgs e)
         {
-            var destination = new TabbedPageTaskList();
-            await this.Navigation.PushAsync(destination);
+            var userService = DependenciesResolver.Kernel.GetService<IUserService>();
+            User user = userService.GetByCondition((u) => u.Login == _login).FirstOrDefault();
+            if (user != null)
+            {
+                if(user.Password == _password)
+                {
+                    var destination = new TabbedPageTaskList();
+                    await Navigation.PushAsync(destination);
+                }
+                else
+                {
+                    await DisplayAlert("Error", "Incorrect login or password", "Ok");
+                    return;
+                }
+            }
+            else
+            {
+                await DisplayAlert("Error", "Incorrect login or password", "Ok");
+            }
+            
+        }
+
+        private void Login_Completed(object sender, EventArgs e)
+        {
+            _login = ((Entry)sender).Text;
+        }
+
+        private void Password_Completed(object sender, EventArgs e)
+        {
+            _password = ((Entry)sender).Text;
         }
     }
 }
