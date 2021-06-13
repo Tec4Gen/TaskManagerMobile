@@ -27,7 +27,7 @@
                                    Padding="10">
                                 <StackLayout Orientation="Horizontal">
                                     <StackLayout>
-                                        <Label Text="{Binding Title}"
+                                        <Label x:Name="LabelTask" Text="{Binding Title}"
                                                FontSize="25"
                                                HorizontalOptions="Start"
                                                VerticalOptions="Center"/>
@@ -41,7 +41,7 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <Entry x:Name="description"/>
+        <Entry x:Name="description" Completed="TaskName_Completed" PropertyChanged="TaskName_Completed"/>
         <Button Text="+" Clicked="OnAddTask_Clicked" />
 
     </StackLayout>

@@ -17,6 +17,9 @@ namespace SSU.TaskManager.Views
         private readonly ITaskService _taskService;
         private readonly IBoardService _boardService;
 
+        private int _idUser = TabbedPageTaskList.IdUser;
+        private string _taskName;
+
         public List<Task> Tasks { get; set; } = new List<Task>();
 
         public ToDoListPage()
@@ -37,30 +40,36 @@ namespace SSU.TaskManager.Views
         public async void OnDescription_Clicked(object sender, EventArgs e)
         {
             var btn = sender as Button;
-
-            var task = new Task
-            {
-                Title = btn.Text,
-                Description = "Типа описание",
-                DeadLine = DateTime.Now.ToString(),
-            };
+            var stackLayout = btn.Parent as StackLayout;
+            var label = stackLayout.FindByName("LabelTask") as Label;
+            Task task = _taskService.GetByCondition(t => t.Title == label.Text).FirstOrDefault();
+            //var task = new Task
+            //{
+            //    Title = btn.Text,
+            //    Description = "Типа описание",
+            //    DeadLine = DateTime.Now.ToString(),
+            //};
 
             var taskDescriptionView = new TaskDescriptionView(task);
 
             await Navigation.PushAsync(taskDescriptionView);
         }
 
+        private void TaskName_Completed(object sender, EventArgs e)
+        {
+            _taskName = ((Entry)sender).Text;
+        }
+
+
         public async void OnAddTask_Clicked(object sender, EventArgs e)
         {
-            var entry = sender as Entry;
-
-            if (entry.Text != string.Empty)
+            if (_taskName != null)
             {
                 var board = _boardService.GetByCondition(b => b.Title == "TODO").FirstOrDefault();
 
                 var task = new Task
                 {
-                    Title = entry.Text,
+                    Title = _taskName,
                     BoardId = board.Id,
                     Board = board
                 };

@@ -45,6 +45,7 @@
                                            FontSize="22"
                                            VerticalOptions="StartAndExpand" />
                                 </StackLayout>
+                                <Button Text="Edit" FontSize="10" Clicked="OnDescription_Clicked"/>
                             </StackLayout>
                         </Frame>
                     </ContentView>

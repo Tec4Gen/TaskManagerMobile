@@ -12,7 +12,8 @@ namespace SSU.TaskManager.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TabbedPageTaskList : TabbedPage
     {
-        public TabbedPageTaskList()
+        public static int IdUser { get; set; }
+        public TabbedPageTaskList(int id)
         {
             InitializeComponent();
         }

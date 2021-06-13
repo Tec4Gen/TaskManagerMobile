@@ -41,12 +41,14 @@ namespace SSU.TaskManager.Views
         private async void LoginButton_Clicked(object sender, EventArgs e)
         {
             var userService = DependenciesResolver.Kernel.GetService<IUserService>();
+            //var destination = new TabbedPageTaskList();
+            //await Navigation.PushAsync(destination);
             User user = userService.GetByCondition((u) => u.Login == _login).FirstOrDefault();
             if (user != null)
             {
-                if(user.Password == _password)
+                if (user.Password == _password)
                 {
-                    var destination = new TabbedPageTaskList();
+                    var destination = new TabbedPageTaskList(user.Id);
                     await Navigation.PushAsync(destination);
                 }
                 else
@@ -59,7 +61,7 @@ namespace SSU.TaskManager.Views
             {
                 await DisplayAlert("Error", "Incorrect login or password", "Ok");
             }
-            
+
         }
 
         private void Login_Completed(object sender, EventArgs e)
