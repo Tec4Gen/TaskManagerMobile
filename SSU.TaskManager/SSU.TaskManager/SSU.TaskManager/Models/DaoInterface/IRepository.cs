@@ -9,9 +9,8 @@ namespace SSU.TaskManager
     {
         void Add(T entity);
         void Update(T entity);
-        void Delete(T entity);
+        void Delete(int id);
         IEnumerable<T> GetAll();
         T GetById(int id);
-        IEnumerable<T> GetByCondition(Expression<Func<T, bool>> where);
     }
 }

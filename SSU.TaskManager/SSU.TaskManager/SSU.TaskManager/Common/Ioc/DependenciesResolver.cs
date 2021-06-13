@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using SSU.TaskManager.BusinessLogic.ServiceInterface;
 using SSU.TaskManager.BusinessLogic.Services;
 using SSU.TaskManager.Models.Dao;
+using SSU.TaskManager.Models.DaoImplementation;
 using SSU.TaskManager.Models.DaoInterface;
 using SSU.TaskManager.Models.Repository;
 using System;
@@ -22,12 +23,12 @@ namespace SSU.TaskManager.Common.Ioc
 
         private static IServiceProvider Configurates() 
         {
-            _services.AddDbContext<TaskManagerContext>();
-            _services.AddTransient<DbContext, TaskManagerContext>();
+            //_services.AddDbContext<TaskManagerContext>();
+            //_services.AddTransient<DbContext, TaskManagerContext>();
 
-            _services.AddTransient<ITaskRepository, TaskRepository>();
-            _services.AddTransient<IBoardRepository, BoardRepository>();
-            _services.AddTransient<IUserRepository, UserRepository>();
+            _services.AddTransient<ITaskRepository, TaskDao>();
+            _services.AddTransient<IBoardRepository, BoardDao>();
+            _services.AddTransient<IUserRepository, UserDao>();
 
             _services.AddTransient<ITaskService, TaskService>();
             _services.AddTransient<IBoardService, BoardService>();

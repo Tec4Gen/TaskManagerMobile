@@ -4,6 +4,7 @@ using SSU.TaskManager.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using System.Linq;
 
 namespace SSU.TaskManager.BusinessLogic.Services
 {
@@ -21,9 +22,9 @@ namespace SSU.TaskManager.BusinessLogic.Services
             _userService.Add(entity);
         }
 
-        public void Delete(User entity)
+        public void Delete(int id)
         {
-            _userService.Delete(entity);
+            _userService.Delete(id);
         }
 
         public IEnumerable<User> GetAll()
@@ -31,9 +32,9 @@ namespace SSU.TaskManager.BusinessLogic.Services
             return _userService.GetAll();
         }
 
-        public IEnumerable<User> GetByCondition(Expression<Func<User, bool>> where)
+        public IEnumerable<User> GetByCondition(Func<User, bool> where)
         {
-            return _userService.GetByCondition(where);
+            return _userService.GetAll().Where(where);
         }
 
         public User GetById(int id)

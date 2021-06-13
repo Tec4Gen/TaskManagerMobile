@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
+using System.Linq;
 
 namespace SSU.TaskManager.BusinessLogic.Services
 {
@@ -17,34 +18,19 @@ namespace SSU.TaskManager.BusinessLogic.Services
             _boardRepository = boardRepository;
         }
 
-        public void Add(Board entity)
-        {
-            _boardRepository.Add(entity);
-        }
-
-        public void Delete(Board entity)
-        {
-            _boardRepository.Delete(entity);
-        }
-
         public IEnumerable<Board> GetAll()
         {
             return _boardRepository.GetAll();
         }
 
-        public IEnumerable<Board> GetByCondition(Expression<Func<Board, bool>> where)
+        public IEnumerable<Board> GetByCondition(Func<Board, bool> where)
         {
-            return _boardRepository.GetByCondition(where);
+            return _boardRepository.GetAll().Where(where);
         }
 
         public Board GetById(int id)
         {
             return _boardRepository.GetById(id);
-        }
-
-        public void Update(Board entity)
-        {
-            _boardRepository.Update(entity);
         }
     }
 }
